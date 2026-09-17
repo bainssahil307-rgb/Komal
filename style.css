@@ -1212,3 +1212,155 @@ body::before {
         height: 17px;
     }
     }
+/* ================================= */
+/* PASSWORD LOCK 🔐❤️ */
+/* ================================= */
+
+.password-lock {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: #080812;
+
+    text-align: center;
+}
+
+.password-box {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 40px 25px;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.16);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.lock-heart {
+    font-size: 42px;
+    margin-bottom: 18px;
+
+    animation: lockPulse 2s ease-in-out infinite;
+}
+
+.lock-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: 0.55;
+    margin-bottom: 12px;
+}
+
+.password-box h1 {
+    font-size: 30px;
+    margin: 0 0 15px;
+}
+
+.password-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+.password-box input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.08);
+    color: inherit;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    outline: none;
+
+    font-size: 16px;
+
+    text-align: center;
+}
+
+.password-box input:focus {
+    border-color: rgba(255,255,255,0.45);
+}
+
+.password-box button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.12);
+    color: inherit;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.password-box button:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.18);
+}
+
+.password-error {
+    display: none;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+}
+
+.password-error.show {
+    display: block;
+    animation: errorShake 0.35s ease;
+}
+
+@keyframes lockPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+@keyframes errorShake {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+}
