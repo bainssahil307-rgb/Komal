@@ -495,7 +495,34 @@ music.addEventListener("ended", function () {
         });
 
     } else {
+/* ================================= */
+/* PASSWORD UNLOCK 🔐 */
+/* ================================= */
 
+function unlockWebsite() {
+
+    const passwordInput = document.getElementById("secretPassword");
+    const passwordLock = document.getElementById("passwordLock");
+    const passwordError = document.getElementById("passwordError");
+
+    const correctPassword = "19feb06dec";
+
+    if (passwordInput.value === correctPassword) {
+
+        passwordLock.style.display = "none";
+
+    } else {
+
+        passwordError.classList.add("show");
+
+        passwordInput.value = "";
+
+        setTimeout(function () {
+            passwordError.classList.remove("show");
+        }, 2000);
+
+    }
+}
         music.pause();
         music.currentTime = 0;
         musicStatus.classList.remove("show");
