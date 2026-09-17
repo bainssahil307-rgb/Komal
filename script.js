@@ -1,14 +1,8 @@
 /* =========================
-   8 MONTHS ANNIVERSARY
-   ILRAB NIANOR ❤️
+   STORY
 ========================= */
 
-
-/* =========================
-   TAP STORY
-========================= */
-
-const stories = [
+const storyData = [
 
     {
         title: "The Beginning ❤️",
@@ -16,7 +10,7 @@ const stories = [
         text: `Shayad us tym mne bhi koni pata tha
 ki ek chota sa purpose meri zindagi ka
 itna khoobsurat hissa ban jega. ❤️`,
-        photo: "photos/Screenshot_20260915_164419_Gallery.jpg"
+        image: "photos/Screenshot_20260915_164419_Gallery.jpg"
     },
 
     {
@@ -24,7 +18,7 @@ itna khoobsurat hissa ban jega. ❤️`,
         label: "16 SEPTEMBER • 8 MONTHS",
         text: `Aaj 16 September hai…
 or dekhte dekhte 8 months ho gee. 🌷`,
-        photo: "photos/Screenshot_20260916_145232_Gallery.jpg"
+        image: "photos/Screenshot_20260916_145232_Gallery.jpg"
     },
 
     {
@@ -34,7 +28,7 @@ or dekhte dekhte 8 months ho gee. 🌷`,
 lekin jo understanding, care, respect,
 love or sukoon isme milaa hai…
 mere vaste vo kisi naam se kam koni. ❤️`,
-        photo: "photos/Screenshot_20260916_145721_Gallery.jpeg"
+        image: "photos/Screenshot_20260916_145721_Gallery.jpeg"
     },
 
     {
@@ -44,7 +38,7 @@ mere vaste vo kisi naam se kam koni. ❤️`,
 mujhe samjha.. sambhala or apnaya.
 
 Sach me aap mne merte bhi jyada samjho ho. 🥺❤️`,
-        photo: "photos/Screenshot_20260916_145732_Gallery.jpg"
+        image: "photos/Screenshot_20260916_145732_Gallery.jpg"
     },
 
     {
@@ -54,7 +48,7 @@ Sach me aap mne merte bhi jyada samjho ho. 🥺❤️`,
 khush rhte mere samne raho.
 
 Thari smile mere liye bahut special hai. 🫂`,
-        photo: "photos/Screenshot_20260916_145800_Gallery.jpg"
+        image: "photos/Screenshot_20260916_145800_Gallery.jpg"
     },
 
     {
@@ -66,432 +60,493 @@ meri sabse special person. 🌸🥳
 I love youu, I really miss uu nd 🥹
 
 I will choose u today, tomorrow and every day. 🧿🌸`,
-        photo: "photos/Screenshot_20260916_150103_Gallery.jpg"
+        image: "photos/Screenshot_20260916_150103_Gallery.jpg"
     }
 
 ];
 
-
 let currentStory = 0;
-
-
-/* =========================
-   START STORY
-========================= */
-
-function startStory() {
-
-    const hero = document.querySelector(".hero");
-    const story = document.getElementById("story");
-
-    if (hero) {
-        hero.style.display = "none";
-    }
-
-    if (story) {
-        story.style.display = "flex";
-    }
-
-    updateStory();
-
-}
-
-
-/* =========================
-   NEXT STORY
-========================= */
-
-function nextStory() {
-
-    currentStory++;
-
-    if (currentStory >= stories.length) {
-        currentStory = 0;
-    }
-
-    updateStory();
-
-}
-
-
-/* =========================
-   UPDATE STORY
-========================= */
 
 function updateStory() {
 
-    const story = stories[currentStory];
+    const story = storyData[currentStory];
 
-    const card =
-        document.querySelector(".story-card");
+    document.getElementById("storyCounter").textContent =
+        `${currentStory + 1} / ${storyData.length}`;
 
-    const label =
-        document.getElementById("storyLabel");
+    document.getElementById("storyLabel").textContent =
+        story.label;
 
-    const title =
-        document.getElementById("storyTitle");
+    document.getElementById("storyTitle").textContent =
+        story.title;
 
-    const text =
-        document.getElementById("storyText");
+    document.getElementById("storyText").textContent =
+        story.text;
 
-    const counter =
-        document.getElementById("storyCounter");
-
-    const photo =
-        document.getElementById("storyImage");
+    document.getElementById("storyImage").src =
+        story.image;
+}
 
 
-    if (!story) {
-        return;
-    }
+function startStory() {
+
+    const storySection =
+        document.getElementById("story");
+
+    storySection.classList.add("active");
+
+    storySection.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    currentStory = 0;
+
+    updateStory();
+}
 
 
-    if (card) {
+function nextStory() {
 
-        card.style.animation = "none";
+    if (currentStory < storyData.length - 1) {
 
-        void card.offsetWidth;
+        currentStory++;
 
-        card.style.animation =
-            "storyAppear 0.7s ease";
+        updateStory();
 
-    }
+    } else {
 
-
-    if (label) {
-        label.textContent = story.label;
-    }
-
-
-    if (title) {
-        title.textContent = story.title;
-    }
-
-
-    if (text) {
-        text.textContent = story.text;
-    }
-
-
-    if (counter) {
-        counter.textContent =
-            `${currentStory + 1} / ${stories.length}`;
-    }
-
-
-    if (photo) {
-
-        photo.src = story.photo;
-
-        photo.alt = story.title;
+        document.getElementById("memories")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
 
     }
 
 }
 
 
-
 /* =========================
-   MEMORY ALBUM
+   ALBUM
 ========================= */
 
 const albumPhotos = [
 
-    {
-        photo: "photos/Screenshot_20260916_150103_Gallery.jpg",
-        caption: "One of those special moments ❤️"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145732_Gallery.jpg",
-        caption: "A little memory 🌸"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145721_Gallery.jpeg",
-        caption: "Some moments stay forever 🫀"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145432_Video Player.jpg",
-        caption: "Another beautiful memory ✨"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145422_Video Player.jpg",
-        caption: "A moment worth remembering 🌷"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145313_Gallery.jpg",
-        caption: "Our little memories ❤️"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145304_Gallery.jpg",
-        caption: "Just a beautiful moment 🥹"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145232_Gallery.jpg",
-        caption: "A memory to keep 🌻"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_144749_Gallery.jpg",
-        caption: "That little smile ❤️"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_144840_Gallery.jpg",
-        caption: "Moments like these 🫂"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_144802_Gallery.jpg",
-        caption: "A beautiful memory 🌸"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145028_Gallery.jpg",
-        caption: "Some memories need no words ✨"
-    },
-
-    {
-        photo: "photos/Screenshot_20260916_145046_Gallery.jpg",
-        caption: "Still one of my favourites ❤️"
-    }
+    "photos/Screenshot_20260916_150103_Gallery.jpg",
+    "photos/Screenshot_20260916_145732_Gallery.jpg",
+    "photos/Screenshot_20260916_145721_Gallery.jpeg",
+    "photos/Screenshot_20260916_145432_Video Player.jpg",
+    "photos/Screenshot_20260916_145422_Video Player.jpg",
+    "photos/Screenshot_20260916_145313_Gallery.jpg",
+    "photos/Screenshot_20260916_145304_Gallery.jpg",
+    "photos/Screenshot_20260916_145232_Gallery.jpg",
+    "photos/Screenshot_20260916_144749_Gallery.jpg",
+    "photos/Screenshot_20260916_144840_Gallery.jpg",
+    "photos/Screenshot_20260916_144802_Gallery.jpg",
+    "photos/Screenshot_20260916_145028_Gallery.jpg",
+    "photos/Screenshot_20260916_145046_Gallery.jpg"
 
 ];
 
+const albumCaptions = [
+
+    "One of those special moments ❤️",
+    "A little memory 🌸",
+    "Just us 🫀",
+    "Another beautiful moment 🌷",
+    "A moment worth remembering ❤️",
+    "Somewhere between smiles and memories 🫂",
+    "A simple moment, a special memory 🌻",
+    "This one is special 🤌",
+    "One more memory to keep 🧿",
+    "Little moments, big feelings ❤️",
+    "Always a beautiful memory 🌸",
+    "Another page of our story 📖",
+    "8 months of memories 🥹❤️"
+
+];
 
 let currentAlbumPhoto = 0;
+let albumChanging = false;
 
-
-/* =========================
-   UPDATE ALBUM PHOTO
-========================= */
-
-function updateAlbumPhoto() {
+function updateAlbum(animate = true) {
 
     const image =
         document.getElementById("albumImage");
 
-    const caption =
-        document.getElementById("albumCaption");
-
     const counter =
         document.getElementById("albumCounter");
 
+    const caption =
+        document.getElementById("albumCaption");
 
-    if (!image || !caption || !counter) {
+    if (!image || !counter || !caption) {
         return;
     }
 
-
-    image.style.opacity = "0";
-
-    image.style.transform =
-        "scale(0.96)";
-
-
-    setTimeout(function () {
+    if (!animate) {
 
         image.src =
-            albumPhotos[currentAlbumPhoto].photo;
+            albumPhotos[currentAlbumPhoto];
 
-        caption.textContent =
-            albumPhotos[currentAlbumPhoto].caption;
+        image.classList.remove("album-changing");
+        image.classList.add("album-visible");
 
         counter.textContent =
-            (currentAlbumPhoto + 1)
-            + " / "
-            + albumPhotos.length;
+            `${currentAlbumPhoto + 1} / ${albumPhotos.length}`;
 
+        caption.textContent =
+            albumCaptions[currentAlbumPhoto];
 
-        image.style.opacity = "1";
+        updateAlbumDots();
 
-        image.style.transform =
-            "scale(1)";
+        return;
+    }
 
-    }, 300);
+    if (albumChanging) {
+        return;
+    }
 
+    albumChanging = true;
+
+    const nextImage =
+        albumPhotos[currentAlbumPhoto];
+
+    const nextCaption =
+        albumCaptions[currentAlbumPhoto];
+
+    const finishChange = function () {
+
+        image.src = nextImage;
+
+        counter.textContent =
+            `${currentAlbumPhoto + 1} / ${albumPhotos.length}`;
+
+        caption.textContent =
+            nextCaption;
+
+        caption.classList.remove("caption-changing");
+
+        requestAnimationFrame(function () {
+
+            image.classList.remove("album-changing");
+            image.classList.add("album-visible");
+
+        });
+
+        updateAlbumDots();
+
+        setTimeout(function () {
+
+            albumChanging = false;
+
+        }, 1000);
+
+    };
+
+    image.classList.remove("album-visible");
+    image.classList.add("album-changing");
+
+    caption.classList.add("caption-changing");
+
+    setTimeout(finishChange, 700);
 }
 
-
-/* =========================
-   NEXT ALBUM PHOTO
-========================= */
 
 function nextAlbumPhoto() {
 
-    currentAlbumPhoto++;
-
-
-    if (
-        currentAlbumPhoto >=
-        albumPhotos.length
-    ) {
-
-        currentAlbumPhoto = 0;
-
+    if (albumChanging) {
+        return;
     }
 
+    currentAlbumPhoto++;
 
-    updateAlbumPhoto();
+    if (currentAlbumPhoto >= albumPhotos.length) {
+        currentAlbumPhoto = 0;
+    }
 
+    updateAlbum(true);
 }
 
-
-/* =========================
-   PREVIOUS ALBUM PHOTO
-========================= */
 
 function previousAlbumPhoto() {
 
-    currentAlbumPhoto--;
-
-
-    if (currentAlbumPhoto < 0) {
-
-        currentAlbumPhoto =
-            albumPhotos.length - 1;
-
+    if (albumChanging) {
+        return;
     }
 
+    currentAlbumPhoto--;
 
-    updateAlbumPhoto();
+    if (currentAlbumPhoto < 0) {
+        currentAlbumPhoto = albumPhotos.length - 1;
+    }
+
+    updateAlbum(true);
+}
+
+
+function updateAlbumDots() {
+
+    const dots =
+        document.getElementById("albumDots");
+
+    if (!dots) {
+        return;
+    }
+
+    dots.innerHTML = "";
+
+    albumPhotos.forEach(function (_, index) {
+
+        const dot =
+            document.createElement("span");
+
+        dot.className = "album-dot";
+
+        if (index === currentAlbumPhoto) {
+            dot.classList.add("active");
+        }
+
+        dot.onclick = function () {
+
+            if (albumChanging) {
+                return;
+            }
+
+            currentAlbumPhoto = index;
+
+            updateAlbum(true);
+
+        };
+
+        dots.appendChild(dot);
+
+    });
+
+}
+
+
+/* Auto album slideshow */
+
+setInterval(function () {
+
+    const album =
+        document.getElementById("memories");
+
+    if (album) {
+        nextAlbumPhoto();
+    }
+
+}, 3000);
+
+
+/* =========================
+   REASONS
+========================= */
+
+function openReasons() {
+
+    const content =
+        document.getElementById("reasonsContent");
+
+    if (!content) {
+        return;
+    }
+
+    content.classList.toggle("open");
 
 }
 
 
 /* =========================
-   AUTO SLIDESHOW
-   EVERY 3 SECONDS
+   MESSAGE
+========================= */
+
+function openMessage() {
+
+    const content =
+        document.getElementById("messageContent");
+
+    if (!content) {
+        return;
+    }
+
+    content.classList.toggle("open");
+
+}
+
+
+/* =========================
+   SECRET
+========================= */
+
+function openSecretNote() {
+
+    const note =
+        document.getElementById("secretNote");
+
+    if (!note) {
+        return;
+    }
+
+    note.classList.toggle("open");
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const song =
+    document.getElementById("ourSong");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+
+function setMusicButton(text) {
+
+    if (musicButton) {
+        musicButton.innerHTML = text;
+    }
+
+}
+
+
+function toggleMusic() {
+
+    if (!song) {
+        return;
+    }
+
+    if (song.paused) {
+
+        song.play()
+            .then(function () {
+
+                setMusicButton("️my favorite voice note");
+
+                musicStatus.classList.add("show");
+
+            })
+            .catch(function () {
+
+                setMusicButton("my favourite music 🎵");
+
+            });
+
+    } else {
+
+        song.pause();
+
+        setMusicButton("my favourite music 🎵");
+
+        musicStatus.classList.remove("show");
+
+    }
+
+}
+
+
+song.addEventListener("play", function () {
+
+    musicStatus.classList.add("show");
+
+    setMusicButton("Pause ⏸️");
+
+});
+
+
+song.addEventListener("pause", function () {
+
+    musicStatus.classList.remove("show");
+
+});
+
+
+/* =========================
+   SECOND SONG
+========================= */
+
+let secondSongStarted = false;
+
+song.addEventListener("ended", function () {
+
+    if (!secondSongStarted) {
+
+        secondSongStarted = true;
+
+        song.src = "music/Sahil.mp3";
+
+        song.play()
+            .then(function () {
+
+                setMusicButton("a voice message to my laddu");
+
+                musicStatus.classList.add("show");
+
+            })
+            .catch(function () {
+
+                setMusicButton("my favourite music 🎵");
+
+            });
+
+    } else {
+
+        setMusicButton("my favourite music 🎵");
+
+        musicStatus.classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================
+   FLOATING PETALS
 ========================= */
 
 setInterval(function () {
 
-    nextAlbumPhoto();
+    const petal =
+        document.createElement("div");
 
-}, 3000);
-function openReasons() {
-    const content = document.getElementById("reasonsContent");
+    petal.className = "petal";
 
-    if (content) {
-        content.classList.add("show");
-    }
-}function openMessage() {
-    const content = document.getElementById("messageContent");
+    petal.textContent = "🌸";
 
-    if (content) {
-        content.classList.add("show");
-    }
-}function openSecretNote() {
-    const note = document.getElementById("secretNote");
-
-    if (note) {
-        note.classList.add("show");
-    }
-}/* ================================= */
-/* FLOATING PETALS 🌸 */
-/* ================================= */
-
-function createFloatingPetal() {
-
-    const petal = document.createElement("div");
-
-    petal.className = "floating-petal";
-
-    const petals= ["🌸", "✨", "♡"];
-
-    petal.innerHTML = petals[
-        Math.floor(Math.random() * petals.length)
-    ];
-
-    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.left =
+        Math.random() * 100 + "vw";
 
     petal.style.animationDuration =
-        (7 + Math.random() * 6) + "s";
-
-    petal.style.fontSize =
-        (12 + Math.random() * 10) + "px";
+        (5 + Math.random() * 5) + "s";
 
     document.body.appendChild(petal);
 
-    setTimeout(() => {
+    setTimeout(function () {
+
         petal.remove();
-    }, 14000);
-}
 
-setInterval(createFloatingPetal, 1800);
-/* ================================= */
-/* SCROLL REVEAL ✨ */
-/* ================================= */
+    }, 10000);
 
-function revealSections() {
+}, 1800);
 
-    const elements = document.querySelectorAll(
-        "section:not(.hero-section)"
-    );
 
-    elements.forEach(element => {
-        element.classList.add("reveal");
-    });
+/* =========================
+   INITIALIZE
+========================= */
 
-    const observer = new IntersectionObserver(
-        entries => {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-            entries.forEach(entry => {
+        updateStory();
 
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
+        updateAlbum(false);
 
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-    document
-        .querySelectorAll(".reveal")
-        .forEach(element => observer.observe(element));
-}
-
-document.addEventListener("DOMContentLoaded", revealSections);
-/* ================================= */
-/* MUSIC STATUS 🎵 */
-/* ================================= */
-
-const music = document.querySelector("audio");
-const musicStatus = document.getElementById("musicStatus");
-
-if (music && musicStatus) {
-
-    music.addEventListener("play", function () {
-        musicStatus.classList.add("show");
-    });
-
-    music.addEventListener("pause", function () {
-        musicStatus.classList.remove("show");
-    });
-
-let secondSongPlayed = false;
-
-music.addEventListener("ended", function () {
-
-    if (!secondSongPlayed) {
-
-        secondSongPlayed = true;
-
-        music.src = "music/Sahil.mp3";
-        music.load();
-
-        music.play().catch(function(error) {
-            console.log("Second song could not autoplay:", error);
-        });
-
-    } else {
+    }
+);
