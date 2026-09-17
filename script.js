@@ -375,3 +375,116 @@ setInterval(function () {
     nextAlbumPhoto();
 
 }, 3000);
+function openReasons() {
+    const content = document.getElementById("reasonsContent");
+
+    if (content) {
+        content.classList.add("show");
+    }
+}function openMessage() {
+    const content = document.getElementById("messageContent");
+
+    if (content) {
+        content.classList.add("show");
+    }
+}function openSecretNote() {
+    const note = document.getElementById("secretNote");
+
+    if (note) {
+        note.classList.add("show");
+    }
+}/* ================================= */
+/* FLOATING PETALS 🌸 */
+/* ================================= */
+
+function createFloatingPetal() {
+
+    const petal = document.createElement("div");
+
+    petal.className = "floating-petal";
+
+    const petals= ["🌸", "✨", "♡"];
+
+    petal.innerHTML = petals[
+        Math.floor(Math.random() * petals.length)
+    ];
+
+    petal.style.left = Math.random() * 100 + "vw";
+
+    petal.style.animationDuration =
+        (7 + Math.random() * 6) + "s";
+
+    petal.style.fontSize =
+        (12 + Math.random() * 10) + "px";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 14000);
+}
+
+setInterval(createFloatingPetal, 1800);
+/* ================================= */
+/* SCROLL REVEAL ✨ */
+/* ================================= */
+
+function revealSections() {
+
+    const elements = document.querySelectorAll(
+        "section:not(.hero-section)"
+    );
+
+    elements.forEach(element => {
+        element.classList.add("reveal");
+    });
+
+    const observer = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach(element => observer.observe(element));
+}
+
+document.addEventListener("DOMContentLoaded", revealSections);
+/* ================================= */
+/* MUSIC STATUS 🎵 */
+/* ================================= */
+
+const music = document.querySelector("audio");
+const musicStatus = document.getElementById("musicStatus");
+
+if (music && musicStatus) {
+
+    music.addEventListener("play", function () {
+        musicStatus.classList.add("show");
+    });
+
+    music.addEventListener("pause", function () {
+        musicStatus.classList.remove("show");
+    });
+
+    music.addEventListener("ended", function () {
+
+    music.src = "music/Sahil.mp3";
+    music.load();
+
+    music.play();
+
+});
+}
