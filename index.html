@@ -1,285 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>️ ilrab nianor❤️</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilrab Nianor ❤️</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
+<section class="hero">
+    <div class="heart">♡</div>
 
-    <!-- =========================
-         OPENING
-    ========================== -->
+    <p class="small-text">16 JANUARY • 4:13 AM 🌷</p>
 
-    <section class="hero">
+    <h1>Hey Sonia</h1>
+    <h2>Ilrab Nianor</h2>
 
-        <div class="heart">♡</div>
+    <p class="subtitle">
+        A little story made especially for you...
+    </p>
 
-        <p class="small-text">
+    <p class="opening-note">
+        Some moments become memories...
+        and some people become a beautiful part of life. 🌸
+    </p>
+
+    <audio id="ourSong" preload="auto">
+        <source src="music/our-song.oga" type="audio/ogg">
+    </audio>
+
+    <div id="musicStatus" class="music-status">
+        <div class="music-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span>sunooo 🤗🎵</span>
+    </div>
+
+    <button onclick="toggleMusic()" id="musicButton">
+        🎵 Play my favorite music
+    </button>
+
+    <button onclick="startStory()" class="begin-btn">
+        Tap to Begin ❤️
+    </button>
+</section>
+
+
+<!-- STORY -->
+
+<section class="tap-story" id="story">
+
+    <div class="story-counter" id="storyCounter">
+        1 / 6
+    </div>
+
+    <div class="story-card">
+
+        <p class="section-label" id="storyLabel">
             16 JANUARY • 4:13 AM 🌷
         </p>
 
-        <h1>
-            Hey Sonia 
-        </h1>
-        <h2>Ilrab Nianor </h2>
-        <p class="subtitle">
-            A little story made especially for you...
-        </p>
-
-        <p class="opening-note">
-            Some moments become memories...
-            and some people become a beautiful part of life. 🌸
-        </p>
-
-
-        <!-- =========================
-             MUSIC
-        ========================== -->
-
-        <audio id="ourSong"preload="auto">
-
-            <source
-                src="music/our-song.oga"
-                type="audio/ogg">
-
-            Your browser does not support audio.
-<div id="musicStatus" class="music-status">
-    <div class="music-bars">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <span>Our song is playing 🎵</span>
-</div>
-        </audio>
-
-
-        <button
-            onclick="toggleMusic()"
-            id="musicButton">
-
-            🎵 Play my favorite music
-
-        </button>
-
-
-        <button onclick="startStory()">
-
-            Tap to Begin ❤️
-
-        </button>
-
-    </section>
-
-
-
-    <!-- =========================
-         TAP STORY
-    ========================== -->
-
-    <section
-        class="tap-story"
-        id="story">
-
-
-        <div
-            class="story-counter"
-            id="storyCounter">
-
-            1 / 6
-
-        </div>
-
-
-        <div class="story-card">
-
-
-            <p
-                class="section-label"
-                id="storyLabel">
-
-                16 JANUARY • 4:13 AM 🌷
-
-            </p>
-
-
-            <h2 id="storyTitle">
-
-                The Beginning ❤️
-
-            </h2>
-
-
-            <p
-                class="tap-text"
-                id="storyText">
-
-                Shayad us tym mne bhi koni pata tha
-                ki ek chota sa purpose meri zindagi ka
-                itna khoobsurat hissa ban jega. ❤️
-
-            </p>
-
-
-            <img
-                class="story-image"
-                id="storyImage"
-                src="Screenshot_20260915_164419_Gallery.jpg"
-                alt="A special memory">
-
-
-        </div>
-
-
-        <button
-            class="continue-btn"
-            onclick="nextStory()">
-
-            Tap to Continue ✨
-
-        </button>
-
-
-    </section>
-
-
-
-    <!-- =========================
-         COMPACT PHOTO ALBUM
-    ========================== -->
-
-    <section
-        class="memory-album"
-        id="memories">
-
-
-        <p class="section-label">
-
-            OUR LITTLE MEMORIES 📸
-
-        </p>
-
-
-        <h2>
-
-            Little Moments, Big Memories ❤️
-
+        <h2 id="storyTitle">
+            The Beginning ❤️
         </h2>
 
-
-        <p class="album-intro">
-
-            Kuch tasveerein sirf photos nahi hoti...
-            woh un moments ko dobara jeene ka
-            ek chhota sa tareeka hoti hain. 🌷
-
+        <p class="tap-text" id="storyText">
+            Shayad us tym mne bhi koni pata tha
+            ki ek chota sa purpose meri zindagi ka
+            itna khoobsurat hissa ban jega. ❤️
         </p>
 
+        <img
+            class="story-image"
+            id="storyImage"
+            src="photos/Screenshot_20260915_164419_Gallery.jpg"
+            alt="A special memory">
+    </div>
 
-        <div class="photo-album">
+    <button class="continue-btn" onclick="nextStory()">
+        Tap to Continue ✨
+    </button>
 
-
-            <!-- COUNTER -->
-
-            <div
-                class="album-counter"
-                id="albumCounter">
-
-                1 / 13
-
-            </div>
-
-
-            <!-- PHOTO -->
-
-            <div class="album-photo-box">
+</section>
 
 
-                <img
-                    id="albumImage"
-                    src="Screenshot_20260916_150103_Gallery.jpg"
-                    alt="Memory">
+<!-- ALBUM -->
+
+<section class="memory-album" id="memories">
+
+    <p class="section-label">
+        OUR LITTLE MEMORIES 📸
+    </p>
+
+    <h2>
+        Little Moments, Big Memories ❤️
+    </h2>
 
 
-                <p id="albumCaption">
 
-                    One of those special moments ❤️
+    <div class="photo-album">
 
-                </p>
-
-
-            </div>
-
-
-            <!-- MANUAL CONTROLS -->
-
-            <div class="album-controls">
-
-
-                <button
-                    onclick="previousAlbumPhoto()">
-
-                    ‹
-
-                </button>
-
-
-                <button
-                    onclick="nextAlbumPhoto()">
-
-                    ›
-
-                </button>
-
-
-            </div>
-
-
-            <!-- DOTS -->
-
-            <div
-                class="album-dots"
-                id="albumDots">
-            </div>
-
-
+        <div class="album-counter" id="albumCounter">
+            1 / 13
         </div>
 
+        <div class="album-photo-box">
 
-        <!-- ALBUM END -->
+            <img
+                id="albumImage"
+                src="photos/Screenshot_20260916_150103_Gallery.jpg"
+                alt="Memory">
 
-        <div class="album-ending">
-
-            <p>
-
-                Some memories stay close to the heart. 🧿❤️
-
+            <p id="albumCaption">
+                One of those special moments ❤️
             </p>
 
         </div>
 
+        <div class="album-controls">
+            <button onclick="previousAlbumPhoto()">‹</button>
+            <button onclick="nextAlbumPhoto()">›</button>
+        </div>
 
-    </section>
+        <div class="album-dots" id="albumDots"></div>
+
+    </div>
+
+    <div class="album-ending">
+        <p>
+            Some memories stay close to the heart. 🧿❤️
+        </p>
+    </div>
+
+</section>
+
+
 <!-- 8 REASONS -->
 
 <section class="reasons-section">
 
-    <button class="reasons-open-btn" onclick="openReasons()">
+    <button
+        class="reasons-open-btn"
+        onclick="openReasons()">
+
         <span>❤️</span>
-        <strong>8 Reasons Why You Are So Special</strong>
-        <small>Tap to discover them 🌸</small>
+
+        <strong>
+            8 Reasons Why You Are So Special
+        </strong>
+
+        <small>
+            Tap to discover them 🌸
+        </small>
+
     </button>
 
     <div id="reasonsContent" class="reasons-content">
@@ -330,21 +206,39 @@
 
     </div>
 
-</<!-- MESSAGE FOR YOU -->
+</section>
+
+
+<!-- MESSAGE -->
 
 <section class="message-section">
 
-    <button class="message-open-btn" onclick="openMessage()">
+    <button
+        class="message-open-btn"
+        onclick="openMessage()">
+
         <span class="message-icon">💌</span>
-        <strong>A Message For You</strong>
-        <small>Tap to open my heart 🌸</small>
+
+        <strong>
+            A Message For You
+        </strong>
+
+        <small>
+            Tap to open my heart 🌸
+        </small>
+
     </button>
+
 
     <div id="messageContent" class="message-content">
 
-        <div class="message-label">16 SEPTEMBER 2026 🌸</div>
+        <div class="message-label">
+            16 SEPTEMBER 2026 🌸
+        </div>
 
-        <h2>Happy 8 Months To Us ❤️</h2>
+        <h2>
+            Happy 8 Months To Us ❤️
+        </h2>
 
         <div class="message-card">
 
@@ -367,8 +261,7 @@
             <p>
                 Kade bhi meri kmi ginakr glt koni btaya..
                 mujhe samjha.. sambhala or apnaya.
-                Sach me aap mne merte bhi jyada samjho ho 
-                
+                Sach me aap mne merte bhi jyada samjho ho
             </p>
 
             <p>
@@ -403,7 +296,10 @@
             </p>
 
             <div class="final-wish">
-                <h3>Happy 8 Months Anniversary To Us 🌸🥳</h3>
+
+                <h3>
+                    Happy 8 Months Anniversary To Us 🌸🥳
+                </h3>
 
                 <p>
                     Meri sabse special person ❤️
@@ -417,10 +313,11 @@
                     I will choose you today, tomorrow and every day
                     meri jaan 🧿🌸
                 </p>
-                
+
                 <p>
-    Aapka apna - Sahil 
-</p>
+                    Aapka apna - Sahil
+                </p>
+
             </div>
 
         </div>
@@ -430,150 +327,83 @@
 </section>
 
 
-<!-- A LITTLE SECRET FOR YOU -->
+<!-- SECRET -->
 
 <section class="secret-section">
 
-    <button class="secret-open-btn" onclick="openSecretNote()">
+    <button
+        class="secret-open-btn"
+        onclick="openSecretNote()">
 
         <span class="secret-icon">💌</span>
 
-        <strong>A Little Secret For You</strong>
+        <strong>
+            A Little Secret For You
+        </strong>
 
-        <small>Tap to open 🌸</small>
+        <small>
+            Tap to open 🌸
+        </small>
 
     </button>
 
+
     <div id="secretNote" class="secret-note">
 
-        <div class="secret-envelope">🫀</div>
-
-        <h2></h2>
-
+        <div class="secret-envelope">
+            🫀
+        </div>
 
 
         <p class="secret-final">
-            I will never stop loving you. ❤️<br><br>
+
+            I will never stop loving you. ❤️
+            <br><br>
+
             I’ll always be here to listen to you,
-            understand you, and stand beside you. 🫂<br><br>
+            understand you, and stand beside you. 🫂
+
+            <br><br>
+
             No matter what, you’ll always have a special place
             in my heart. 🧿🌸
+
         </p>
 
         <div class="secret-sign">
-            Sonia 
-            — Ilrab Nianor 🌷
+            Ilrab Nianor 🌷
         </div>
 
     </div>
 
 </section>
-    <!-- =========================
-         FINAL
-    ========================== -->
-
-    <section class="final">
 
 
-        <div class="heart">
+<!-- FINAL -->
 
-            ♡
+<section class="final">
 
-        </div>
+    <div class="heart">
+        ♡
+    </div>
 
+    <h2>
+        Our Story Is Still Being Written...
+    </h2>
 
-        <h2>
+    <p>
+        And maybe the most beautiful memories
+        are still waiting for us. 🌷
+    </p>
 
-            Our Story Is Still Being Written...
+    <h3>
+        Happy 8 Months ❤️
+    </h3>
 
-        </h2>
-
-
-        <p>
-
-            And maybe the most beautiful memories
-            are still waiting for us. 🌷
-
-        </p>
-
-
-        <h3>
-
-            Happy 8 Months ❤️
-
-        </h3>
+</section>
 
 
-    </section>
-
-
-
-    <!-- =========================
-         MAIN SCRIPT
-    ========================== -->
-
-    <script src="script.js"></script>
-
-
-
-    <!-- =========================
-         MUSIC CONTROL
-    ========================== -->
-
-    <script>
-
-        function toggleMusic() {
-
-            const song =
-                document.getElementById("ourSong");
-
-            const button =
-                document.getElementById("musicButton");
-
-
-            if (!song) {
-                return;
-            }
-
-
-            if (song.paused) {
-
-                const playPromise = song.play();
-
-
-                if (playPromise !== undefined) {
-
-                    playPromise
-                        .then(function () {
-
-                            button.innerHTML =
-                                "Ⅱ Pause mat krna ";
-
-                        })
-                        .catch(function () {
-
-                            button.innerHTML =
-                                "🎵 Tap Again to Play";
-
-                        });
-
-                }
-
-            }
-
-            else {
-
-                song.pause();
-
-                button.innerHTML =
-                    "my favourite music 🎵";
-
-            }
-
-        }
-
-    </script>
+<script src="script.js"></script>
 
 </body>
-
-    </html>
+</html>
