@@ -479,12 +479,28 @@ if (music && musicStatus) {
         musicStatus.classList.remove("show");
     });
 
-    music.addEventListener("ended", function () {
+let secondSongPlayed = false;
 
-    music.src = "music/Sahil.mp3";
-    music.load();
+music.addEventListener("ended", function () {
 
-    music.play();
+    if (!secondSongPlayed) {
+
+        secondSongPlayed = true;
+
+        music.src = "music/Sahil.mp3";
+        music.load();
+
+        music.play().catch(function(error) {
+            console.log("Second song could not autoplay:", error);
+        });
+
+    } else {
+
+        music.pause();
+        music.currentTime = 0;
+        musicStatus.classList.remove("show");
+
+    }
 
 });
-}
+                                }
